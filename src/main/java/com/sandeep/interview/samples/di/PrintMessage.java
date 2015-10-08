@@ -22,22 +22,22 @@ public class PrintMessage implements MessageService, InitializingBean, Disposabl
     }
 
 
-    public void create() {
-        System.out.println("create : " + this.getClass());
-    }
-
-
-    public void destroyUserDefined() {
-        System.out.println("destroy : " + this.getClass());
-    }
-
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("\nInitializingBean.afterPropertiesSet : " + this.getClass());
+    }
+
+    public void create() {
+        System.out.println("create : " + this.getClass());
     }
 
     @Override
     public void destroy() throws Exception {
         System.out.println("DisposableBean.destroy : " + this.getClass());
     }
+
+    public void destroyUserDefined() {
+        System.out.println("destroy : " + this.getClass());
+    }
+
 }
