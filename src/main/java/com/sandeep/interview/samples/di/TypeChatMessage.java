@@ -3,11 +3,14 @@ package com.sandeep.interview.samples.di;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
+import java.util.logging.Logger;
+
 /**
  * Created by SMALA on 10/8/2015.
  */
 public class TypeChatMessage implements MessageService, InitializingBean, DisposableBean {
-
+    //    private static final Logger logger = (Logger) LoggerFactory.getLogger(TypeChatMessage.class);
+    private static final Logger log = Logger.getLogger("TypeChatMessage.class");
     private String messageOne;
     private String messageTwo;
 
@@ -23,20 +26,20 @@ public class TypeChatMessage implements MessageService, InitializingBean, Dispos
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("\nInitializingBean.afterPropertiesSet : " + this.getClass());
+        log.info("InitializingBean.afterPropertiesSet : " + this.getClass());
     }
 
     public void create() {
-        System.out.println("create : " + this.getClass());
+        log.info("create : " + this.getClass());
     }
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("DisposableBean.destroy : " + this.getClass());
+        log.info("DisposableBean.destroy : " + this.getClass());
     }
 
     public void destroyUserDefined() {
-        System.out.println("destroy : " + this.getClass());
+        log.info("destroy : " + this.getClass());
     }
 
 }
