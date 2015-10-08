@@ -19,6 +19,7 @@
 
     </bean>
 
+    <!-- Check the output to see the singleton and prototype difference - CHANGE BELOW COMMENTS ACCORDINGLY-->
     <!--<bean id="chatMessage" class="com.sandeep.interview.samples.di.TypeChatMessage" scope="singleton">-->
     <bean id="chatMessage" class="com.sandeep.interview.samples.di.TypeChatMessage" scope="prototype">
         <constructor-arg value="TypeChatMessage : CONS-PARAM1" index="0" name="msg1"/>
