@@ -1,7 +1,6 @@
 package com.sandeep.interview.samples.di;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.*;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**

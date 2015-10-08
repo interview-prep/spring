@@ -2,9 +2,6 @@ package com.sandeep.interview.samples.di;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Required;
-
-import javax.annotation.Resource;
 
 /**
  * Created by SMALA on 10/8/2015.
@@ -30,7 +27,7 @@ public class MessagePrinter {
      * @Qualifier will decide bean wiring by name. This will avoid the conflict of bean creation by Name.
      * 'chatMessage' and 'chatMessageOne' will give same hashcode if it is tied with "chatMessage" bean and scope is singletone
      * 'chatMessage' and 'chatMessageOne' will give different hashcode if it is tied with "chatMessage" bean and scope is prototype!
-     *  prototype create different object for different injections
+     * prototype create different object for different injections
      */
 
     // @Resource :  is not applicable because it is autowire by name only.
