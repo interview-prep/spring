@@ -1,6 +1,7 @@
 package com.sandeep.interview.samples.di;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -10,10 +11,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class ApplicationSpring {
 
     public static void main(String[] args) {
-//        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationSpring.class);
-        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:context/application-context.xml");
+        //ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationSpring.class);
+        // AbstractApplicationContext has multiple implementation
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("classpath:context/application-context.xml");
 
         MessagePrinter printer = context.getBean(MessagePrinter.class);
         printer.printMessage();
+        context.registerShutdownHook();
     }
 }

@@ -19,7 +19,19 @@
 
     </bean>
 
-    <bean id="printMessage" class="com.sandeep.interview.samples.di.PrintMessage">
+    <!--<bean id="chatMessage" class="com.sandeep.interview.samples.di.TypeChatMessage" scope="singleton">-->
+    <bean id="chatMessage" class="com.sandeep.interview.samples.di.TypeChatMessage" scope="prototype">
+        <constructor-arg value="TypeChatMessage : CONS-PARAM1" index="0" name="msg1"/>
+        <constructor-arg value="TypeChatMessage : CONS-PARAM2" index="1" name="msg2"/>
+    </bean>
+
+    <bean id="chatMessageOne" class="com.sandeep.interview.samples.di.TypeChatMessage" init-method="create" destroy-method="destroyUserDefined">
+        <constructor-arg value="TypeChatMessageOne : CONS-PARAM1" index="0" name="msg1"/>
+        <constructor-arg value="TypeChatMessageOne : CONS-PARAM2" index="1" name="msg2"/>
+    </bean>
+
+
+    <bean id="printMessage" class="com.sandeep.interview.samples.di.PrintMessage"  init-method="create" destroy-method="destroyUserDefined">
         <!-- If index & name both are used than param name and index value should be matching. 0:param1 - 1:param2
         [otherwise below error message will appear]-->
 
@@ -30,14 +42,5 @@
         <constructor-arg value="PrintMessage : CONS-PARAM2" index="1" name="msg2"/>
     </bean>
 
-    <bean id="chatMessage" class="com.sandeep.interview.samples.di.TypeChatMessage" scope="prototype">
-        <constructor-arg value="TypeChatMessage : CONS-PARAM1" index="0" name="msg1"/>
-        <constructor-arg value="TypeChatMessage : CONS-PARAM2" index="1" name="msg2"/>
-    </bean>
-
-    <bean id="chatMessageOne" class="com.sandeep.interview.samples.di.TypeChatMessage">
-        <constructor-arg value="TypeChatMessageOne : CONS-PARAM1" index="0" name="msg1"/>
-        <constructor-arg value="TypeChatMessageOne : CONS-PARAM2" index="1" name="msg2"/>
-    </bean>
 
 </beans>
