@@ -3,7 +3,6 @@ package com.sandeep.interview.samples.di;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -12,7 +11,7 @@ import java.util.logging.Logger;
  */
 public class PrintMessage implements MessageService, InitializingBean, DisposableBean {
 
-    //    private static final Logger logger = (Logger) LoggerFactory.getLogger(TypeChatMessage.class);
+    //private static final Logger logger = (Logger) LoggerFactory.getLogger(TypeChatMessage.class);
     private static final Logger log = Logger.getLogger("TypeChatMessage.class");
 
     private String messageOne;

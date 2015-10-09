@@ -12,15 +12,20 @@ public class MessagePrinter {
 
     final private MessageService service;
 
-    // Autowire with wire byName and wire byType. It will try by type if found that will init. else it will try by name.
-    // If multiple bean id's with same class then we need to use qualifier.
+    /**
+     * Autowire with wire byName and wire byType. It will try by type if found that will init. else it will try by name.
+     * If multiple bean id's with same class then we need to use qualifier.
+     */
+
     @Autowired
     //@Qualifier("chatMessage") // this annotation is required when we have Ambiguous bean ids.
     private TypeChatMessage chatMessage;
 
+    /**
+     * @Qualifier("chatMessage") this annotation is required when we have Ambiguous bean ids.
+     */
+
     @Autowired
-    //@Qualifier("chatMessage")
-    //this annotation is required when we have Ambiguous bean ids.
     private TypeChatMessage chatMessageOne;
 
     /**
@@ -28,11 +33,11 @@ public class MessagePrinter {
      * 'chatMessage' and 'chatMessageOne' will give same hashcode if it is qualified with "chatMessage" bean and scope is singleton
      * 'chatMessage' and 'chatMessageOne' will give different hashcode if it is qualified with "chatMessage" bean and scope is prototype!
      * prototype create different object for different injections
+     * @Resource :  is not applicable because it is autowire by name only.
+     * @Qualifier(value = "chatMessage")  : is not applicable because it is autowire by name only. It should be attached with dependent object
+     * Example : @Qualifier("printMessage") MessageService service
      */
 
-    // @Resource :  is not applicable because it is autowire by name only.
-    // @Qualifier(value = "chatMessage")  : is not applicable because it is autowire by name only. It should be attached with dependent object
-    // Example : @Qualifier("printMessage") MessageService service
     @Autowired
     public MessagePrinter(@Qualifier("printMessage") MessageService service) {
         this.service = service;
