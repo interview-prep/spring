@@ -11,7 +11,7 @@
 
     <!-- id is nt required while autowire by constructor-->
     <bean id="messagePrinter" class="com.sandeep.interview.samples.di.MessagePrinter">
-        <!--this is required when we use default auto wiring. that is no wiring explicitly.
+        <!--this is required when we use default auto wiring. i.e, no explicit wiring.
         Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.sandeep.interview.samples.di.MessagePrinter]:
         No default constructor found; nested exception is java.lang.NoSuchMethodException: com.sandeep.interview.samples.di.MessagePrinter.<init>()-->
 
@@ -19,7 +19,7 @@
 
     </bean>
 
-    <!-- Check the output to see the singleton and prototype difference - CHANGE BELOW COMMENTS ACCORDINGLY-->
+    <!-- Check the output to see the difference between singleton and prototype - CHANGE BELOW COMMENTS ACCORDINGLY-->
     <!--<bean id="chatMessage" class="com.sandeep.interview.samples.di.TypeChatMessage" scope="singleton">-->
     <bean id="chatMessage" class="com.sandeep.interview.samples.di.TypeChatMessage" scope="prototype">
         <constructor-arg value="TypeChatMessage : CONS-PARAM1" index="0" name="msg1"/>
@@ -31,8 +31,44 @@
         <constructor-arg value="TypeChatMessageOne : CONS-PARAM2" index="1" name="msg2"/>
     </bean>
 
+    <bean id="messages" class="java.util.HashSet">
+        <constructor-arg>
+            <list value-type="java.lang.String">
+                <ref bean="message1"/>
+                <ref bean="message2"/>
+                <ref bean="message3"/>
+                <ref bean="message4"/>
+                <ref bean="message5"/>
+            </list>
+        </constructor-arg>
+
+    </bean>
+
+    <bean id="message1" class="java.lang.String">
+        <constructor-arg value="Sandeep M1"/>
+    </bean>
+
+    <bean id="message2" class="java.lang.String">
+        <constructor-arg value="Sandeep M1"/>
+    </bean>
+
+    <bean id="message3" class="java.lang.String">
+        <constructor-arg value="Sandeep M3"/>
+    </bean>
+
+    <bean id="message4" class="java.lang.String">
+        <constructor-arg value="Sandeep M4"/>
+    </bean>
+
+    <bean id="message5" class="java.lang.String">
+        <constructor-arg value="Sandeep M5"/>
+    </bean>
 
     <bean id="printMessage" class="com.sandeep.interview.samples.di.PrintMessage"  init-method="create" destroy-method="destroyUserDefined">
+
+        <!--Either ‘index’ or ‘name’ can be used to map the parameters. In case if both ‘index’ and ‘name’ is used, then make sure that both are matching the parameters.
+        If not, the below error is resulted. -->
+
         <!-- If index & name both are used than param name and index value should be matching. 0:param1 - 1:param2
         [otherwise below error message will appear]-->
 

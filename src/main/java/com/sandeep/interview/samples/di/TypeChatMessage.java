@@ -2,7 +2,11 @@ package com.sandeep.interview.samples.di;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import java.util.logging.Logger;
 
 /**
@@ -14,14 +18,27 @@ public class TypeChatMessage implements MessageService, InitializingBean, Dispos
     private String messageOne;
     private String messageTwo;
 
+    @Autowired
+    private Set<String> messages;
+
     public TypeChatMessage(String msg1, String msg2) {
         this.messageOne = msg1;
         this.messageTwo = msg2;
+//        messages = new ArrayList<String>();
     }
 
     @Override
     public String getMessageOne() {
         return messageOne + "||" + messageTwo;
+    }
+
+    public void setMessages(Set<String> messages) {
+        this.messages = messages;
+    }
+
+    @Override
+    public Set<String> getMessages() {
+        return messages;
     }
 
     @Override

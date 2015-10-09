@@ -3,6 +3,8 @@ package com.sandeep.interview.samples.di;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
+import java.util.List;
+import java.util.Set;
 import java.util.logging.Logger;
 
 /**
@@ -26,6 +28,10 @@ public class PrintMessage implements MessageService, InitializingBean, Disposabl
         return messageOne + "||" + messageTwo;
     }
 
+    @Override
+    public Set<String> getMessages() {
+        return null;
+    }
 
     @Override
     public void afterPropertiesSet() throws Exception {
