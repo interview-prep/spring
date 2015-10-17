@@ -8,6 +8,12 @@
     <artifactId>InterviewSamples</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <scm>
+        <url>https://github.com/jsandeepm/spring.git</url>
+        <connection>scm:git:git@github.com:jsandeepm/spring.git</connection>
+        <developerConnection>scm:git:git@github.com:jsandeepm/spring.git</developerConnection>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
