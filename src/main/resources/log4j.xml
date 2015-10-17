@@ -23,12 +23,12 @@
 
 
     <logger name="com.sandeep.interview.samples.di" additivity="false">
-        <level value="info"/>
+        <level value="debug"/>
         <appender-ref ref="logfile"/>
     </logger>
 
     <root>
-        <priority value="info"/>
+        <priority value="debug"/>
         <appender-ref ref="stdout"/>
         <appender-ref ref="logfile"/>
     </root>
