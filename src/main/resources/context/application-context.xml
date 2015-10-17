@@ -12,15 +12,15 @@
     <!-- id is nt required while autowire by constructor-->
     <bean id="messagePrinter" class="com.sandeep.interview.samples.di.MessagePrinter">
         <!--this is required when we use default auto wiring. i.e, no explicit wiring.
-        Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.sandeep.interview.samples.di.MessagePrinter]:
-        No default constructor found; nested exception is java.lang.NoSuchMethodException: com.sandeep.interview.samples.di.MessagePrinter.<init>()-->
+        Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [MessagePrinter]:
+        No default constructor found; nested exception is java.lang.NoSuchMethodException: MessagePrinter.<init>()-->
 
         <!--<constructor-arg ref="printMessage"/>-->
 
     </bean>
 
     <!-- Check the output to see the difference between singleton and prototype - CHANGE BELOW COMMENTS ACCORDINGLY-->
-    <!--<bean id="chatMessage" class="com.sandeep.interview.samples.di.TypeChatMessage" scope="singleton">-->
+    <!--<bean id="chatMessage" class="TypeChatMessage" scope="singleton">-->
     <bean id="chatMessage" class="com.sandeep.interview.samples.di.TypeChatMessage" scope="prototype">
         <constructor-arg value="TypeChatMessage : CONS-PARAM1" index="0" name="msg1"/>
         <constructor-arg value="TypeChatMessage : CONS-PARAM2" index="1" name="msg2"/>

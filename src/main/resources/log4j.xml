@@ -22,7 +22,7 @@
     </appender>
 
 
-    <logger name="com.sandeep.interview.samples.di" additivity="false">
+    <logger name="com.org.interview.samples.di" additivity="false">
         <level value="debug"/>
         <appender-ref ref="logfile"/>
     </logger>
