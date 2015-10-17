@@ -67,6 +67,8 @@ public class StackImplArray {
         System.out.println(array.pop());
         System.out.println("----------------------------------");
 
+
+    // TODO:
         int[] ints = array.allElements();
         for (int anInt : ints) {
             System.out.println(anInt);
